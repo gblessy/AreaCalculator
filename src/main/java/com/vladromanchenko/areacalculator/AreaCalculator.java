@@ -1,14 +1,16 @@
 package com.vladromanchenko.areacalculator;
+import com.vladromanchenko.areacalculator.ArgumentsChecker.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+
+import static com.vladromanchenko.areacalculator.ArgumentsChecker.checkArguments;
 
 public class AreaCalculator {
     private final Shapes shape;
     private final int[] dimensions;
-    HashMap<Shapes, Integer> numberOfDimensions = new HashMap<Shapes, Integer>();
+
 
     public AreaCalculator(Shapes shape, int[] dimentions) {
-        numberOfDimensions.put(Shapes.CIRCLE, 1);
-        numberOfDimensions.put(Shapes.TRIANGLE, 3);
 
         if (checkArguments(shape, dimentions)) {
             this.shape = shape;
@@ -18,14 +20,6 @@ public class AreaCalculator {
         }
     }
 
-    private boolean checkArguments(Shapes shape, int[] dimensions ){
-
-        if (numberOfDimensions.get(shape) != dimensions.length) return false;
-        for (int i : dimensions) {
-            if (i < 1) return false;
-        }
-        return true;
-    }
 
     public double calculate(){
         Shape calculation = ShapesFactory.getShape(this.shape, this.dimensions);

@@ -1,6 +1,9 @@
 package com.vladromanchenko.consoleapp;
 import com.vladromanchenko.areacalculator.AreaCalculator;
 import com.vladromanchenko.areacalculator.Shapes;
+import static com.vladromanchenko.areacalculator.ArgumentsChecker.checkShape;
+import static com.vladromanchenko.areacalculator.ArgumentsChecker.checkDimensions;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,23 +13,14 @@ public class ConsoleApp {
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
-        System.out.print("Input type of shape available types are circle and triagle: ");
-        String shape = in.nextLine();
-        Shapes shapeForCalculation = null;
-        if (shape.equalsIgnoreCase(Shapes.CIRCLE.toString())){
-            shapeForCalculation = Shapes.CIRCLE;
-        }
-        System.out.print("Input comma separated list of dimentions for cirkle radius for triangle list of dimentions: ");
-        String dinemsions = in.nextLine();
+        System.out.print("Input type of shape available types are circle and triangle: ");
+        Shapes shape = checkShape(in.nextLine());
+
+        System.out.print("Input comma separated list of dimensions for triangle or radius for circle: ");
+        int[] intDimensions = checkDimensions(shape, in.nextLine().split(","));
         in.close();
-        String[] stringDimentions = dinemsions.split(",");
-        ArrayList<Integer> intDimensions = new ArrayList<Integer>();
 
-        for (String s : stringDimentions){
-            intDimensions.add(Integer.parseInt(s));
-        }
-
-        AreaCalculator ac = new AreaCalculator(shapeForCalculation, intDimensions.stream().mapToInt(i -> i).toArray());
+        AreaCalculator ac = new AreaCalculator(shape, intDimensions);
         System.out.println(ac.calculate());
     }
 }
