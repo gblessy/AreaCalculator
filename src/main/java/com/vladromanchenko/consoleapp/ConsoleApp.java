@@ -1,12 +1,11 @@
 package com.vladromanchenko.consoleapp;
+
+import java.util.Scanner;
 import com.vladromanchenko.areacalculator.AreaCalculator;
 import com.vladromanchenko.areacalculator.Shapes;
 import static com.vladromanchenko.areacalculator.ArgumentsChecker.checkShape;
 import static com.vladromanchenko.areacalculator.ArgumentsChecker.checkDimensions;
 
-
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ConsoleApp {
 

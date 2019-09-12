@@ -1,7 +1,4 @@
 package com.vladromanchenko.areacalculator;
-import com.vladromanchenko.areacalculator.ArgumentsChecker.*;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import static com.vladromanchenko.areacalculator.ArgumentsChecker.checkArguments;
 

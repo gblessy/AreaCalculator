@@ -10,6 +10,7 @@ public class ArgumentsChecker {
         numberOfDimensions.put(Shapes.CIRCLE, 1);
         numberOfDimensions.put(Shapes.TRIANGLE, 3);
     }
+
     static boolean checkArguments(Shapes shape, int[] dimensions ){
         addDimentions();
         if (numberOfDimensions.get(shape) != dimensions.length) return false;
@@ -30,7 +31,7 @@ public class ArgumentsChecker {
     }
 
     public static int[] checkDimensions(Shapes shape, String[] dimensionsString ){
-
+        addDimentions();
         ArrayList<Integer> intArrayDimensions = new ArrayList<Integer>();
 
         for (String s : dimensionsString){
