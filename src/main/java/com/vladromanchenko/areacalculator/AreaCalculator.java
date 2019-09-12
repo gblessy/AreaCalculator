@@ -1,12 +1,12 @@
 package com.vladromanchenko.areacalculator;
 import java.util.HashMap;
 
-public class App {
+public class AreaCalculator {
     private final Shapes shape;
     private final int[] dimensions;
     HashMap<Shapes, Integer> numberOfDimensions = new HashMap<Shapes, Integer>();
 
-    public App(Shapes shape, int[] dimentions) {
+    public AreaCalculator(Shapes shape, int[] dimentions) {
         numberOfDimensions.put(Shapes.CIRCLE, 1);
         numberOfDimensions.put(Shapes.TRIANGLE, 3);
 
